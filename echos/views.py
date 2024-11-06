@@ -26,7 +26,7 @@ def echo_detail(request, echo_pk):
 def echo_waves(request, echo_pk):
     echo = Echo.objects.get(pk=echo_pk)
     waves = echo.waves.all()
-    return render(request, 'echos/echo_detail.html', dict(echo=echo, waves=waves))
+    return render(request, 'echos/echo_waves.html', dict(echo=echo, waves=waves))
 
 
 @login_required

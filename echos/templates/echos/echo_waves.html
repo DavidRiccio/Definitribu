@@ -1,6 +1,8 @@
 {% extends "shared/base.html" %}
 {% block body %}
 <h1>Todos los Waves</h1>
+<a href="{% url "echos:echo_list" %}"class="btn btn-primary mt-3">Volver al Home</a>
+
 {% for wave in waves %}
 <div class="w-50 ms-auto me-auto">
         <div class="col-md-4 mb-4">
