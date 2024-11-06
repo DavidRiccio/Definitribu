@@ -1,0 +1,16 @@
+{% extends "shared/base.html" %}
+{% block body %}
+<h1>Todos los Waves</h1>
+{% for wave in waves %}
+<div class="w-50 ms-auto me-auto">
+        <div class="col-md-4 mb-4">
+            <div class="card d-flex">
+                <div class="card-body align-center">
+                    <h5 class="card-title">{{ wave.content }}</h5>
+                    <p class="card-text">@{{ wave.user }}.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+{% endblock body %}

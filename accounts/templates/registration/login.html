@@ -1,0 +1,24 @@
+{% extends "shared/base.html" %}
+
+{% block body %}
+{% if user.is_authenticated %}
+    <p>Ya estás logeado... <a  class="btn bg-custom-orange ms-auto me-auto mt-3" href="{% url "echos:echo_list" %}">Ir al inicio</a></p>
+{% else %}
+    {% if form.errors %}
+        <p>Tu nombre de usuario y contraseña no coinciden. Por favor inténtalo de nuevo.</p>
+    {% endif %}
+    {% if next and next != '/' %}
+        {% if user.is_authenticated %}
+            <p>Tu cuenta no tiene acceso a esta página. Para proceder, por favor haz login con una cuenta que tenga acceso.</p>
+        {% else %}
+            <p>Por favor haz login para ver esta página.</p>
+        {% endif %}
+    {% endif %}
+    <form method="post" action="{% url 'login' %}" novalidate>
+        {% csrf_token %}
+        {{ form }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <input type="submit" value="Login">
+    </form>
+{% endif %}
+{% endblock %}

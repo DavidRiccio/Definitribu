@@ -1,0 +1,8 @@
+*.pyc
+db.sqlite3
+.venv
+.mypy_cache
+db.sqlite3
+todo/__pycache__/urls.cpython-312.pyc
+todo/__pycache__/views.cpython-312.pyc
+pytest.ini

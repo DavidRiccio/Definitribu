@@ -1,0 +1,12 @@
+{% extends "shared/base.html" %}
+
+{% block body %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    <div class="w-50 ms-auto me-auto">
+    {{ form }}
+    <input type="submit" value="Registro">
+    <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Haz login aquí</a></p>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,58 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+.bg-custom-orange {
+  background-color: #ffbb00 !important; /* Cambia el color de fondo a naranja */
+}
+.text-brown {
+  color: #734e38;
+}
+body {
+  background-color: #f9f9f9;
+}
+.navbar {
+  background-color: #ff6f20;
+}
+.navbar-brand,
+.nav-link {
+  color: white !important;
+}
+.echo-card {
+  margin: 20px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.echo-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.echo-footer {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 10px;
+}
+.waves {
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.wave {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+}
+.btn-add-echo {
+  margin: 20px 0;
+}
+.greeting {
+  font-size: 18px; /* Tamaño de fuente más pequeño */
+  font-weight: normal; /* Peso normal */
+  color: #333; /* Color más neutro */
+  text-align: center; /* Centrar el texto */
+  margin: 10px 0; /* Espaciado reducido */
+  padding: 5px; /* Espaciado interno reducido */
+  background-color: transparent; /* Sin fondo */
+}
