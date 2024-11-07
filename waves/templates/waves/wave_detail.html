@@ -1,0 +1,12 @@
+{% extends "shared/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">{{ wave.echo.title }}</h1> <!-- Título del Echo -->
+    <p class="text-muted">Creado por: {{ wave.username }} el {{ wave.created_at }}</p>
+    <div class="wave-content">
+        <p>{{ wave.content }}</p>
+    </div>
+    <a href="{% url 'waves:wave_list' %}" class="btn btn-primary mt-3">Volver a la lista de Waves</a>
+</div>
+{% endblock %}

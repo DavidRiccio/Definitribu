@@ -1,25 +1,54 @@
 {% extends "shared/base.html" %}
-{% block body %}
-<a href="{% url "echos:echo_list" %}"class="btn btn-primary mt-3">Volver al Home</a>
-<a href="{% url "echos:echo_waves" echo.pk %}"class="btn btn-primary mt-3">Todos los waves</a>
 
+{% block body %}
+
+
+
+<a href="{% url 'echos:echo_waves' echo.pk %}" class="btn btn-primary mt-3">Ver Todos los Waves</a>
 <div class="row justify-content-center">
   <div class="echo-card">
-      <div class="echo-content">
-          <h5>{{echo.content}}</h5>
-          <div class="echo-footer">Por <strong> @{{echo.user}} </strong> |{{echo.created_at}}</div>
-{% for wave in waves %}
-<div class="w-50 ms-auto me-auto">
-        <div class="col-md-4 mb-4">
-            <div class="card d-flex">
-                <div class="card-body align-center">
-                    <h5 class="card-title">{{ wave.content }}</h5>
-                    <p class="card-text">@{{ wave.user }}.</p>
+    <h2>{{ echo.title }}</h2>
+    <p>{{ echo.content }}</p>
+    <p>Creado por <strong>@{{ echo.user }}</strong> el {{ echo.created_at }}</p>
+  </div>
+</div>
+
+<div class="row g-4">
+    {% for wave in waves %}
+    <div class="col-12 col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+        <div class="card h-100 border-0 shadow-lg rounded-lg hover-card">
+            <div class="card-body p-4">
+                <!-- Avatar y Usuario -->
+                <div class="d-flex align-items-center mb-4">
+                    <div class="avatar-circle me-3">
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">@{{ wave.user }}</h6>
+                        <small class="text-muted">
+                            <i class="far fa-clock me-1"></i>{{ wave.created_at|timesince }}
+                        </small>
+                    </div>
                 </div>
+
+                <!-- Contenido -->
+                <p class="card-title  mb-3">{{ wave.content|truncatechars:100 }}</p>
+                
+                <!-- Botón Leer más -->
+                <div class="d-flex justify-content-end mt-4">
+                    <a href="{% url 'waves:wave_detail' wave.pk %}" class="btn btn-primary">
+                    <button class="btn btn-primary btn-sm rounded-pill px-3">
+                        Leer más
+                    </div></a>
+                    </button>
             </div>
         </div>
     </div>
+    {% endfor %}
+</div>
+</div>
 
+{% if waves.count == 5 %}
+  <a href="{% url 'echos:echo_waves' echo.pk %}" class="btn btn-secondary mt-3">Ver todos los Waves</a>
+{% endif %}
 
-        {% endfor %}
 {% endblock body %}
