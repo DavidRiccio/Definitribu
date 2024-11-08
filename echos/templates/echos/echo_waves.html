@@ -2,23 +2,28 @@
 
 {% block body %}
 <!-- Hero Section -->
-<div class="bg-gradient-primary text-white py-5 mb-5">
+<div class="bg-primary text-white py-5 mb-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 text-center">
-                <h1 class="display-3 fw-bold mb-3 animate__animated animate__fadeIn">Descubre los Waves</h1>
-                <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">Explora las últimas conversaciones y pensamientos de nuestra comunidad</p>
+                <h3 class="display-3 fw-bold mb-3 animate__animated animate__fadeIn">Explora las últimas conversaciones y pensamientos de la tribu</h3>
             </div>
         </div>
     </div>
 </div>
-
+<div class="row justify-content-center">
+    <div class="echo-card w-50">
+      <h2 class="">Echo original</h2>
+      <p>{{ echo.content }}</p>
+      <p>Creado por <strong>@{{ echo.user }}</strong> el {{ echo.created_at  }}</p>
+    </div>
+  </div>
 <div class="container">
     <!-- Botón Volver -->
     <div class="row mb-5">
         <div class="col-md-4">
-            <a href="{% url 'echos:echo_list' %}" class="btn btn-outline-primary rounded-pill">
-                <i class="fas fa-arrow-left me-2"></i>Volver al Home
+            <a href="{% url 'echos:echo_list' %}" class="">
+                <button class="btn btn-outline-primary">Volver al Home</button>
             </a>
         </div>
     </div>
@@ -32,24 +37,16 @@
                     <!-- Avatar y Usuario -->
                     <div class="d-flex align-items-center mb-4">
                         <div class="avatar-circle me-3">
-                            {% if wave.user.profile_image %}
-                                <img src="{{ wave.user.profile_image.url }}" alt="{{ wave.user }}" class="rounded-circle" width="50">
-                            {% else %}
-                                <div class="avatar-placeholder rounded-circle bg-primary text-white">
-                                    {{ wave.user.username|make_list|first|upper }}
-                                </div>
-                            {% endif %}
                         </div>
                         <div>
                             <h6 class="mb-0 fw-bold">@{{ wave.user }}</h6>
-                            <small class="text-muted">
                                 <i class="far fa-clock me-1"></i>{{ wave.created_at|timesince }}
                             </small>
                         </div>
                     </div>
 
                     <!-- Contenido -->
-                    <h5 class="card-title fw-bold mb-3">{{ wave.content|truncatechars:100 }}</h5>
+                    <h5 class="card-title  mb-3">{{ wave.content}}</h5>
                     
                     <!-- Botón Leer más -->
                     <div class="d-flex justify-content-end mt-4">

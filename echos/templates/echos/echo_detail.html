@@ -3,22 +3,23 @@
 {% block body %}
 
 
+{% if num_waves < 5 %}
+
+{% else %}
 
 <a href="{% url 'echos:echo_waves' echo.pk %}" class="btn btn-primary mt-3">Ver Todos los Waves</a>
+{% endif %}
 <div class="row justify-content-center">
   <div class="echo-card">
-    <h2>{{ echo.title }}</h2>
     <p>{{ echo.content }}</p>
     <p>Creado por <strong>@{{ echo.user }}</strong> el {{ echo.created_at }}</p>
   </div>
 </div>
-
 <div class="row g-4">
     {% for wave in waves %}
     <div class="col-12 col-md-6 col-lg-4 animate__animated animate__fadeInUp">
         <div class="card h-100 border-0 shadow-lg rounded-lg hover-card">
             <div class="card-body p-4">
-                <!-- Avatar y Usuario -->
                 <div class="d-flex align-items-center mb-4">
                     <div class="avatar-circle me-3">
                     </div>
@@ -29,11 +30,7 @@
                         </small>
                     </div>
                 </div>
-
-                <!-- Contenido -->
-                <p class="card-title  mb-3">{{ wave.content|truncatechars:100 }}</p>
-                
-                <!-- Botón Leer más -->
+                <p class="card-title  mb-3">{{ wave.content}}</p>
                 <div class="d-flex justify-content-end mt-4">
                     <a href="{% url 'waves:wave_detail' wave.pk %}" class="btn btn-primary">
                     <button class="btn btn-primary btn-sm rounded-pill px-3">

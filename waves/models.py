@@ -11,5 +11,8 @@ class Wave(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     echo = models.ForeignKey('echos.Echo', related_name='waves', on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self) -> str:
         return self.content
